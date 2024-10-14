@@ -15,7 +15,6 @@ services:
   nginx-reverse-proxy:
     image: nginx:latest
     restart: unless-stopped
-    container_name: nginx-reverse-proxy
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
     networks:
@@ -24,7 +23,6 @@ services:
 
   cloudflared:
     image: cloudflare/cloudflared
-    container_name: cloudflared
     restart: unless-stopped
     command: ["tunnel", "--no-autoupdate", "run"]
     environment:
@@ -41,7 +39,6 @@ services:
         FROM alpine:latest
         # assume that the host is using iptables-nft, not iptables-legacy
         RUN apk update & apk add iptables
-    container_name: iptables
     restart: unless-stopped    
     cap_add:
       - NET_ADMIN
