@@ -1,4 +1,5 @@
-Allow internal bridged network to gain internet access
+# Allow internal bridged network to gain internet access
+
 ```
 docker network create net0 \
     --internal \

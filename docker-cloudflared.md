@@ -1,4 +1,4 @@
-Isolate cloudflared from my LAN network
+# Isolate cloudflared from my LAN network
 
 ```
 # docker-compose.yaml

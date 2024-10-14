@@ -1,4 +1,6 @@
-Create ipvlan network, suppose 192.168.0.1 is the router address via device wlan0. also assume that 192.168.0.3, 192.168.0.4 - 192.168.0.7 (192.168.0.4/30) are not in used
+# Create ipvlan network
+
+Suppose 192.168.0.1 is the router address via device wlan0. We also assume that 192.168.0.3, 192.168.0.4 - 192.168.0.7 (192.168.0.4/30) are not in use.
 
 ```
 docker network create -d ipvlan \
