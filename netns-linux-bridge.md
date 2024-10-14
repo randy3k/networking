@@ -99,3 +99,9 @@ sudo nft add table ip nat
 sudo nft add chain ip nat postrouting { type nat hook postrouting priority 100 \; }
 sudo nft add rule nat postrouting ip saddr 172.16.0.1/24 masquerade
 ```
+
+Required if docker is installed, see [this](https://unix.stackexchange.com/a/671703/344960).
+```
+sudo iptables -I DOCKER-USER -s 172.16.0.0/24 -j ACCEPT
+sudo iptables -I DOCKER-USER -d 172.16.0.0/24 -j ACCEPT
+```
