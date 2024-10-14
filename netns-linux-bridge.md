@@ -92,5 +92,10 @@ sudo ip --netns ns2 route add default via 172.16.0.1
 Set NAT table
 ```
 sudo sh -c "echo 1 > /proc/sys/net/ipv4/ip_forward"
+# use iptables
 sudo iptables --table nat -A POSTROUTING -s 172.16.0.1/24 -j MASQUERADE
+# or using nft
+sudo nft add table ip nat
+sudo nft add chain ip nat postrouting { type nat hook postrouting priority 100 \; }
+sudo nft add rule nat postrouting ip saddr 172.16.0.1/24 masquerade
 ```
