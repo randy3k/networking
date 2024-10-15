@@ -1,4 +1,4 @@
-# Create macvlan network (WIP)
+# Create macvlan network and obtain IP from DHCP
 
 Create a debian image with isc-dhcp-client
 ```
