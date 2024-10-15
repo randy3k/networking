@@ -22,10 +22,22 @@ docker run -it \
     randy3k/debian 
 ```
 
+And run inside
 ```
 ip addr show eth0
 # remove the ip assigned by docker
 ip addr flush dev eth0
 dhclient eth0
 ip addr show eht0
+```
+
+Or consider the following one liner
+```
+docker run -it \
+    --network macvlan0 \
+    --cap-add=NET_ADMIN \
+    --mac-address=00:11:22:33:44:55 \
+    --entrypoint /bin/bash \
+    randy3k/debian \
+    -c "ip addr flush dev eth0 && dhclient eth0 && /bin/bash"
 ```
