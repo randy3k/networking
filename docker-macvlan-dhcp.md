@@ -20,7 +20,7 @@ Then we need to flush the current assigned IP and obtain one from DHCP server vi
 It could be done by `ip addr flush dev eth0 && dhclient eth0`  before running the entrypoint of your image.
 
 ```bash
-docker run -it \
+docker run -it --rm \
     --network macvlan0 \
     --cap-add=NET_ADMIN \
     --mac-address=00:11:22:33:44:55 \
