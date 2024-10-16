@@ -43,7 +43,7 @@ sudo ip --netns ns1 addr show veth1b
 sudo ip netns exec ns1 ping 192.168.0.1
 ```
 
-To show the devices associated with the bridge
+To show arp tables of the bridge
 ```
 sudo ip neigh show dev br0
 ```
